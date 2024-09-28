@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaPlusCircle } from "react-icons/fa";
 
 const AddTask = () => {
-  let { Tasks, addTask } = useTasksStore();
+  let { addTask } = useTasksStore();
   let [title, setTitle] = useState("");
 
   return (

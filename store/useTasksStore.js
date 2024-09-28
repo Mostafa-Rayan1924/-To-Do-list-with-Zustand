@@ -10,7 +10,9 @@ const useTasksStore = create((set, get) => ({
         ...state.originalTasks,
         { id: Math.random(), isCompleted: false, title },
       ];
-      localStorage.setItem("Tasks", JSON.stringify(newTasks));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("Tasks", JSON.stringify(newTasks));
+      }
       return {
         Tasks: newTasks,
         originalTasks: newTasks,
@@ -21,7 +23,9 @@ const useTasksStore = create((set, get) => ({
   delTask: (id) =>
     set((state) => {
       const updatedTasks = state.originalTasks.filter((task) => task.id !== id);
-      localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      }
       return {
         Tasks: updatedTasks,
         originalTasks: updatedTasks,
@@ -34,7 +38,9 @@ const useTasksStore = create((set, get) => ({
       const updatedTasks = state.originalTasks.map((item) =>
         item.id === id ? { ...item, title: msg } : item
       );
-      localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      }
 
       return {
         Tasks: updatedTasks,
@@ -48,7 +54,9 @@ const useTasksStore = create((set, get) => ({
       const updatedTasks = state.originalTasks.map((item) =>
         item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
       );
-      localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      }
       return {
         Tasks: updatedTasks,
         originalTasks: updatedTasks,
@@ -72,7 +80,9 @@ const useTasksStore = create((set, get) => ({
       let updatedTasks = state.originalTasks.map((item) => {
         return { ...item, isCompleted: true };
       });
-      localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("Tasks", JSON.stringify(updatedTasks));
+      }
 
       return {
         Tasks: updatedTasks,
