@@ -1,8 +1,12 @@
 import { create } from "zustand";
 
 const useTasksStore = create((set, get) => ({
-  Tasks: JSON.parse(localStorage.getItem("Tasks")) || [],
-  originalTasks: JSON.parse(localStorage.getItem("Tasks")) || [],
+  Tasks: [],
+  originalTasks: [],
+  initializeTasks: () => {
+    const storedTasks = JSON.parse(localStorage.getItem("Tasks")) || [];
+    set({ Tasks: storedTasks, originalTasks: storedTasks });
+  },
   // إضافة Task جديدة
   addTask: (title) =>
     set((state) => {

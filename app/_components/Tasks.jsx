@@ -1,8 +1,16 @@
+"use client";
 import useTasksStore from "@/store/useTasksStore";
 import Task from "./Task";
+import { useEffect } from "react";
 
 const Tasks = () => {
-  let { Tasks } = useTasksStore();
+  let { Tasks, initializeTasks } = useTasksStore();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      initializeTasks();
+    }
+  }, []);
+
   return (
     <div>
       <h2 className="text-textSmDark mb-5">All Tasks Note Here...</h2>
