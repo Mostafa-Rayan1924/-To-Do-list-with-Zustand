@@ -105,7 +105,7 @@ const useTasksStore = create((set, get) => ({
         break;
       case "rev":
         // باخد نسخة منها قبل ما اعدلها عشان لو رجعت للافتراضي يرجع تاني
-        const currentTasks = get().originalTasks.slice();
+        const currentTasks = get().originalTasks;
         const updatedTasks = [...currentTasks].reverse();
         set({ Tasks: updatedTasks });
         break;

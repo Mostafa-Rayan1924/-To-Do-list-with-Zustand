@@ -13,7 +13,11 @@ const Tasks = () => {
 
   return (
     <div>
-      <h2 className="text-textSmDark mb-5">All Tasks Note Here...</h2>
+      <h2 className="text-textSmDark mb-5 flex items-center ">
+        All Tasks Note Here...
+        <span className="text-green-500  mx-1">({Tasks.length})</span>
+        TASKS
+      </h2>
       <div className="flex flex-col   gap-4 divide-y-2 divide-slate-800 mb-5">
         {Tasks.length > 0 ? (
           Tasks.map((task, index) => (

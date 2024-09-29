@@ -1,9 +1,7 @@
 "use client";
-
 import AddTask from "./_components/AddTask";
 import Filteration from "./_components/Filteration";
 import Tasks from "./_components/Tasks";
-
 export default function Home() {
   return (
     <div className="max-w-4xl   flex justify-center items-start mx-auto ">
